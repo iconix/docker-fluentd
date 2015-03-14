@@ -5,6 +5,9 @@ RUN mkdir /etc/fluent
 
 ADD fluent.conf /etc/fluent/
 
+# Serialized JSON parsing plugin, makes "log" field easier to work with
+RUN ["/usr/local/bin/gem", "install", "fluent-plugin-parser", "--no-rdoc", "--no-ri"]
+
 # Record reformer plugin, adds "container_id" field
 RUN ["/usr/local/bin/gem", "install", "fluent-plugin-record-reformer", "--no-rdoc", "--no-ri"]
 
