@@ -11,6 +11,9 @@ RUN ["/usr/local/bin/gem", "install", "fluent-plugin-parser", "--no-rdoc", "--no
 # Record reformer plugin, adds "container_id" field
 RUN ["/usr/local/bin/gem", "install", "fluent-plugin-record-reformer", "--no-rdoc", "--no-ri"]
 
+# Grep plugin, filters out empty logs to prevent flooding system (empty if log was not in JSON format)
+RUN ["/usr/local/bin/gem", "install", "fluent-plugin-grep", "--no-rdoc", "--no-ri"]
+
 # Elasticsearch plugin for Fluentd
 RUN ["apt-get", "update"]
 RUN ["apt-get", "install", "--yes", "make", "libcurl4-gnutls-dev"]
